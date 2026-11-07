@@ -70,3 +70,33 @@
   .brand strong { font-size: 18px; }
   .brand small { font-size: 8px; }
 }
+
+.mobile-launch-bar { display: none; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+@media (max-width: 700px) {
+  body { padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
+  aside { scroll-margin-top: 16px; }
+  .mobile-launch-bar {
+    position: fixed;
+    z-index: 20;
+    inset: auto 0 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: #11161ef5;
+    border-top: 1px solid #3a4350;
+    box-shadow: 0 -8px 24px #0006;
+  }
+  .mobile-launch-bar > div {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px 12px;
+    font-size: 11px;
+  }
+  .mobile-launch-bar span { color: var(--muted); font-size: 10px; }
+  .mobile-launch-bar button { min-height: 44px; }
+}
